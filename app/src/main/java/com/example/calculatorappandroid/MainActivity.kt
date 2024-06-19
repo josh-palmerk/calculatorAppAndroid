@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -33,12 +34,45 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Greeting("User")
+                    DisplayBox(text = "")
                     ButtonGrid()
                 }
             }
         }
     }
 }
+
+// input handler
+class InputHandler() {
+    var firstOperand = 0;
+    var secondOperand = 0;
+    fun UpdateDisplayBox(){
+        // TODO
+    }
+
+    fun AddNumber(number: Int){
+        // TODO
+    }
+
+    fun EqualsDisplay(){
+        // TODO
+    }
+}
+
+
+
+
+
+// composable textbox
+@Composable
+fun DisplayBox(text: String){
+    Text(
+        text = text,
+        Modifier.border(8.dp, Color.Black, RectangleShape,)
+    )
+}
+
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
