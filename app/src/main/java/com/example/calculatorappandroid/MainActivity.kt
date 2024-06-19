@@ -6,8 +6,15 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+//import androidx.compose.foundation.layout.FlowRowScopeInstance.weight
+// import androidx.compose.foundation.layout.FlowRowScopeInstance.weight
+
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+//import androidx.compose.foundation.layout.RowScopeInstance.weight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.Button
@@ -20,7 +27,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.tooling.preview.Preview
+// import androidx.compose.ui.Modifier
+
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.calculatorappandroid.ui.theme.CalculatorAppAndroidTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,25 +43,72 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("User")
-                    DisplayBox(text = "")
-                    ButtonGrid()
+                    // Greeting("User")
+//                    var display = DisplayBox(text = "12345")
+//                    ButtonGrid()
+                    AllGrids(displayText = "testing")
+                    // ButtonGrid()
                 }
             }
         }
     }
 }
+@Composable
+fun AllGrids(displayText: String){
+    Row(modifier = Modifier.fillMaxWidth()) {
+//        DisplayBox(text = displayText)
+//        ButtonGrid()
+//    }
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(1,),
+            modifier = Modifier.weight(1f)
+        ) {
+            item {
+                Text(
+                    text = displayText,
+                    Modifier.border(8.dp, Color.Black, RectangleShape,),
+                    fontSize = 36.sp,
+                )
+            }
+        }
 
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(3),
+            contentPadding = PaddingValues(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = Modifier
+                .weight(1f)
+                .padding(8.dp)
+
+        ) {
+            item { num_button(text = "1") }
+            item { num_button(text = "2") }
+            item { num_button(text = "3") }
+            item { num_button(text = "4") }
+            item { num_button(text = "5") }
+            item { num_button(text = "6") }
+            item { num_button(text = "7") }
+            item { num_button(text = "8") }
+            item { num_button(text = "9") }
+            item { num_button(text = "0") }
+            item { op_button(text = "+") }
+            item { op_button(text = "-") }
+            item { op_button(text = "=") }
+        }
+    }
+}
 // input handler
 class InputHandler() {
-    var firstOperand = 0;
-    var secondOperand = 0;
-    fun UpdateDisplayBox(){
-        // TODO
+    var firstOperand = "";
+    var secondOperand = "";
+    @Composable
+    fun UpdateDisplayBox(text: String){
+        AllGrids(displayText = text)
     }
 
     fun AddNumber(number: Int){
-        // TODO
+        //secondOperand.
     }
 
     fun EqualsDisplay(){
@@ -66,30 +123,36 @@ class InputHandler() {
 // composable textbox
 @Composable
 fun DisplayBox(text: String){
-    Text(
-        text = text,
-        Modifier.border(8.dp, Color.Black, RectangleShape,)
-    )
-}
-
-
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CalculatorAppAndroidTheme {
-        Greeting("Android")
-        ButtonGrid()
+    LazyVerticalGrid(columns = GridCells.Fixed(1,),
+//    modifier = Modifier.weight(1f)
+    ) {
+        item {Text(
+            text = text,
+            Modifier.border(8.dp, Color.Black, RectangleShape,),
+            fontSize = 36.sp,
+        )}
     }
+
 }
+
+
+
+//@Composable
+//fun Greeting(name: String, modifier: Modifier = Modifier) {
+//    Text(
+//        text = "Hello $name!",
+//        modifier = modifier
+//    )
+//}
+
+//@Preview(showBackground = true)
+//@Composable
+//fun GreetingPreview() {
+//    CalculatorAppAndroidTheme {
+//        Greeting("Android")
+//        ButtonGrid()
+//    }
+//}
 
 enum class MathOperationType {
     ADD, SUBTRACT
@@ -112,7 +175,8 @@ fun num_button(text: String ){
         colors = ButtonDefaults.buttonColors(
             contentColor = Color.Black,
             containerColor = Color.LightGray,
-        )
+        ),
+        //modifier = Modifier.weight(1f)
     ) {
         Text(text = text)
 
@@ -151,6 +215,7 @@ fun ButtonGrid() {
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
+
     ) {
         item { num_button(text = "1")}
         item { num_button(text = "2")}
