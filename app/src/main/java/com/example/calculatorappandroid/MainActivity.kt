@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 //import androidx.compose.foundation.layout.FlowRowScopeInstance.weight
 // import androidx.compose.foundation.layout.FlowRowScopeInstance.weight
 
@@ -55,7 +56,7 @@ class MainActivity : ComponentActivity() {
 }
 @Composable
 fun AllGrids(displayText: String){
-    Row(modifier = Modifier.fillMaxWidth()) {
+    Column(modifier = Modifier.fillMaxWidth()) {
 //        DisplayBox(text = displayText)
 //        ButtonGrid()
 //    }
