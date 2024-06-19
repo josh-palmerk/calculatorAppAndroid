@@ -24,6 +24,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
@@ -47,7 +51,7 @@ class MainActivity : ComponentActivity() {
                     // Greeting("User")
 //                    var display = DisplayBox(text = "12345")
 //                    ButtonGrid()
-                    AllGrids(displayText = "testing")
+                    AllGrids()//text = "testing")
                     // ButtonGrid()
                 }
             }
@@ -55,7 +59,8 @@ class MainActivity : ComponentActivity() {
     }
 }
 @Composable
-fun AllGrids(displayText: String){
+fun AllGrids(){//displayText: String){
+    var text by remember { mutableStateOf("") };
     Column(modifier = Modifier.fillMaxWidth()) {
 //        DisplayBox(text = displayText)
 //        ButtonGrid()
@@ -66,7 +71,7 @@ fun AllGrids(displayText: String){
         ) {
             item {
                 Text(
-                    text = displayText,
+                    text = text,
                     Modifier.border(8.dp, Color.Black, RectangleShape,),
                     fontSize = 36.sp,
                 )
@@ -83,16 +88,16 @@ fun AllGrids(displayText: String){
                 .padding(8.dp)
 
         ) {
-            item { num_button(text = "1") }
-            item { num_button(text = "2") }
-            item { num_button(text = "3") }
-            item { num_button(text = "4") }
-            item { num_button(text = "5") }
-            item { num_button(text = "6") }
-            item { num_button(text = "7") }
-            item { num_button(text = "8") }
-            item { num_button(text = "9") }
-            item { num_button(text = "0") }
+            item { num_button(text = "1", { newText -> text += newText }) }
+            item { num_button(text = "2", { newText -> text += newText }) }
+            item { num_button(text = "3", { newText -> text += newText }) }
+            item { num_button(text = "4", { newText -> text += newText }) }
+            item { num_button(text = "5", { newText -> text += newText }) }
+            item { num_button(text = "6", { newText -> text += newText }) }
+            item { num_button(text = "7", { newText -> text += newText }) }
+            item { num_button(text = "8", { newText -> text += newText }) }
+            item { num_button(text = "9", { newText -> text += newText }) }
+            item { num_button(text = "0", { newText -> text += newText }) }
             item { op_button(text = "+") }
             item { op_button(text = "-") }
             item { op_button(text = "=") }
@@ -100,22 +105,30 @@ fun AllGrids(displayText: String){
     }
 }
 // input handler
-class InputHandler() {
+//class InputHandler() {
     var firstOperand = "";
     var secondOperand = "";
+    var opSelected = MathOperationType.NONE;
+    //var displayTextFinal by remember { mutableStateOf("") };
     @Composable
     fun UpdateDisplayBox(text: String){
-        AllGrids(displayText = text)
+        AllGrids()//text = text)
     }
 
-    fun AddNumber(number: Int){
-        //secondOperand.
+    @Composable
+    fun AddNumber(number: String){
+        secondOperand += number//.toString()
+        UpdateDisplayBox(text = secondOperand)
+    }
+
+    fun opButtonPressed(){
+
     }
 
     fun EqualsDisplay(){
         // TODO
     }
-}
+//}
 
 
 
@@ -156,7 +169,7 @@ fun DisplayBox(text: String){
 //}
 
 enum class MathOperationType {
-    ADD, SUBTRACT
+    ADD, SUBTRACT, NONE
 }
 
 typealias MathOperation = (Double, Double) -> Double
@@ -168,9 +181,9 @@ val OpMap = mapOf<MathOperationType, MathOperation>(
 
 
 @Composable
-fun num_button(text: String ){
+fun num_button(text: String, onClick: (String) -> Unit){
     Button(
-        onClick = { /*TODO*/ },
+        onClick = { onClick(text)},//  AddNumber (text) },
         border = BorderStroke(2.dp, Color.Black),
         shape = RectangleShape,
         colors = ButtonDefaults.buttonColors(
@@ -204,32 +217,32 @@ fun op_button(text: String ){
 @Composable
 fun ButtonPreview() {
     CalculatorAppAndroidTheme {
-        num_button(text = "9")
+//        num_button(text = "9")
         op_button(text = "+")
     }
 }
 
-@Composable
-fun ButtonGrid() {
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(3),
-        contentPadding = PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
-
-    ) {
-        item { num_button(text = "1")}
-        item { num_button(text = "2")}
-        item { num_button(text = "3")}
-        item { num_button(text = "4")}
-        item { num_button(text = "5")}
-        item { num_button(text = "6")}
-        item { num_button(text = "7")}
-        item { num_button(text = "8")}
-        item { num_button(text = "9")}
-        item { num_button(text = "0")}
-        item { op_button(text = "+")}
-        item { op_button(text = "-")}
-        item { op_button(text = "=")}
-    }
-}
+//@Composable
+//fun ButtonGrid() {
+//    LazyVerticalGrid(
+//        columns = GridCells.Fixed(3),
+//        contentPadding = PaddingValues(16.dp),
+//        verticalArrangement = Arrangement.spacedBy(8.dp),
+//        horizontalArrangement = Arrangement.spacedBy(8.dp)
+//
+//    ) {
+//        item { num_button(text = "1")}
+//        item { num_button(text = "2")}
+//        item { num_button(text = "3")}
+//        item { num_button(text = "4")}
+//        item { num_button(text = "5")}
+//        item { num_button(text = "6")}
+//        item { num_button(text = "7")}
+//        item { num_button(text = "8")}
+//        item { num_button(text = "9")}
+//        item { num_button(text = "0")}
+//        item { op_button(text = "+")}
+//        item { op_button(text = "-")}
+//        item { op_button(text = "=")}
+//    }
+//}

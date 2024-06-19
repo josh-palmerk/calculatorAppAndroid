@@ -74,44 +74,50 @@ Record all CSE 310 work that you do on your individual module or the team projec
 
 Note that `IM` stands for Individual Module and `TP` stands for Team Project.
 
-| Date | Start Time | IM or TP | Description                                  | Hours:Minutes |
-|------|------------|----------|----------------------------------------------|---------------|
-| 6/4  | 7pm        | IM       | Starting Project                             | 3:30          |
+| Date | Start Time | IM or TP | Description                                   | Hours:Minutes |
+|------|------------|----------|-----------------------------------------------|---------------|
+| 6/4  | 7pm        | IM       | Starting Project                              | 3:30          |
 | 6/5  | 4pm        | IM       | Fixing button laayouts and general appearance | 1:45          |
-| 6/8  | 2pm        | TP       | More database stuff                          | 1:30          |
-| 6/10 | 6pm        | TP       | SQL query templates for brayden              | 2:45          |
-| 6/18 | 7pm        | IM       | Adding calc functionality                    | 3:00          |
-|      |            |          |                                              |               |
-
-_Note: Add more rows as needed._
+| 6/8  | 2pm        | TP       | More database stuff                           | 1:30          |
+| 6/10 | 6pm        | TP       | SQL query templates for brayden               | 2:45          |
+| 6/18 | 7pm        | IM       | Adding calc functionality                     | 5:00          |
+| 6/19 | 12am       | IM       | Making video and logging results              | 1:00          |
 
 
 ## Part 3 - Module Results
 
 This section should be filled out at the end of the Sprint and submitted.
 
-1. Put your GitHub link for your demonstration software here:
+1. Put your GitHub link for your demonstration software here: https://github.com/josh-palmerk/calculatorAppAndroid
 
-2. Put your YouTube link for your code walkthrough and demo video here:
+2. Put your YouTube link for your code walkthrough and demo video here: https://youtu.be/nEQhfFs1UDE
 
 3. Complete the following checklist by either indicating "Yes" or "No". If you indicate "No" then provide an explanation of why beneath the table.
 
-|Question                                                    |Response|
-|------------------------------------------------------------|--------|
-|Are the links above public and working?                     |        |
-|Did you complete all the unique requirements for the module?|        |
-|Did you write at least 100 lines of code?                   |        |
-|Did you fully complete the readme.md file?                  |        |
-|Did you put the readme.md file in GitHub in the top folder? |        |
+|Question                                                    | Response |
+|------------------------------------------------------------|----------|
+|Are the links above public and working?                     | Yes      |
+|Did you complete all the unique requirements for the module?| Yes      |
+|Did you write at least 100 lines of code?                   | Yes      |
+|Did you fully complete the readme.md file?                  | Yes      |
+|Did you put the readme.md file in GitHub in the top folder? | Yes      |
 
 4. If you completed a Stretch Challenge (as shown in the Module Description document in Canvas) then describe what you did.  If you did the Choose Your Own Adventure module, then you get to decide what qualifies as a Stretch Challenge.
 
+I did not complete a stretch challenge.
+
 5. Did you change your selected module during the middle of the Sprint?  If yes, then describe what you changed it to, when you changed it, and why you changed it.
+
+I did not change the module out of pure spite and stubbornness toward Android studio.
 
 6. Using the log above, fill in the total hours and minutes you spent on the individual module:
 
-|Activity         |Total Hours:Minutes|
-|-----------------|-------------------|
-|Individual Module|                   |
+|Activity         | Total Hours:Minutes |
+|-----------------|---------------------|
+|Individual Module| 11:15               |
 
 7. What strategies (behavioral and technical) worked well during this Sprint?  What did not work well?  List some possible ways that you can improve next Sprint.
+
+I keep trying to sprint through the sprints, meaning I try to do it all in a few large sessions rather than keeping it consistent throughout the two week period. This keeps causing a lot of ain but I do it out of necessity. I'm so far behind with everything in my life right now that it's frankly absurd. I deserve to be fired from my job if I'm honest. It's that bad.
+
+I could make things a bit better next sprint after I catch up a bit on my work. I have reason to believe that I can actually catch up now, some of my responsibilities have lessened as of a few days ago.
